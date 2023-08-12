@@ -1,0 +1,22 @@
+<%- include ('partials/header'); %>
+<body>
+    <%- include ('partials/navbar'); %>
+    <div class="container">
+        <article>
+            <form method="post" action="/savequestion">
+                <header>
+                    <label for="title">Title of your question</label>
+                    <input type="text" name="title" id="title" placeholder="Your Question">
+                </header>
+                <body>
+                    <label for="title">Ask it!</label>
+                    <textarea name="question" id="question" cols="30" rows="10"></textarea>
+                </body>
+                <footer>
+                    <button>Share</button>
+                </footer>
+            </form>
+        </article>
+    </div>
+</body>
+<%- include ('partials/footer'); %>

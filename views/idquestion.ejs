@@ -1,0 +1,37 @@
+<%- include ('partials/header'); %>
+<body>
+    <%- include ('partials/navbar'); %>
+
+    <main class="container">
+        <hgroup>
+            <h2><%= idquestion.title %></h2>
+            <h4><%= idquestion.createdAt %></h4>
+        </hgroup>
+        <hr>
+        <p><%= idquestion.description %></p>
+        <hr>
+    </main>
+    <section class="container">
+        <h4>Answers</h4>
+        <details>
+            <summary>Share your thoughts...</summary>
+            <form method="post" action="/saveanswer">
+                <textarea name="answer_text" id="answer_text" cols="30" rows="7"></textarea>
+                <input type="hidden" name="question_id" value="<%= idquestion.id %>">
+                <button type="submit">Submit</button>
+            </form>
+        </details>
+        <% answers.forEach(answer => { %>
+            <article>
+                <header>
+                    <%= answer.createdAt %>
+                </header>
+                <body>
+                    <%= answer.response %>
+                </body>
+            </article>
+        <% })%>
+    </section>
+
+</body>
+<%- include ('partials/footer'); %>
